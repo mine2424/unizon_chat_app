@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>311654921423-nshm0osbkk95jv9pun3ik0tvtmigfbo3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.311654921423-nshm0osbkk95jv9pun3ik0tvtmigfbo3</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD4TSFyrK2gFmF8KmA6ZwM8u1yF_skZStA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>311654921423</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>app.mine.unizonChatApp</string>
+	<key>PROJECT_ID</key>
+	<string>unizon-chat-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>unizon-chat-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:311654921423:ios:5dd343539ff6eb2b2973ba</string>
+</dict>
+</plist>
