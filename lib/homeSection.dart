@@ -42,9 +42,9 @@ class _HomeSectionState extends State<HomeSection> {
     super.initState();
     anonymouslyLogin();
     initializeFirestore();
-    initNotification();
     // _isPole();
     reviewDialog();
+    initNotification();
   }
 
   @override
@@ -56,31 +56,21 @@ class _HomeSectionState extends State<HomeSection> {
     if (FirebaseAuth.instance.currentUser == null) {
       await FirebaseAuth.instance.signInAnonymously();
     }
-    setState(() {
-      isLoading = false;
-    });
   }
 
   Future<void> initializeFirestore() async {
     final _userUid = FirebaseAuth.instance.currentUser.uid;
-    FirebaseFirestore.instance
+    await FirebaseFirestore.instance
         .collection('customerInfo')
         .doc(_userUid)
         .get()
         .then((doc) async {
       if (doc.exists) {
         print("cheked document!");
-        if (doc.data()['reviewCount'] == null) {
-          await FirebaseFirestore.instance
-              .collection('customerInfo')
-              .doc(_userUid)
-              .update({'reviewCount': 1});
-        } else {
-          await FirebaseFirestore.instance
-              .collection('customerInfo')
-              .doc(_userUid)
-              .update({'reviewCount': doc.data()['reviewCount'] + 1});
-        }
+        await FirebaseFirestore.instance
+            .collection('customerInfo')
+            .doc(_userUid)
+            .update({'reviewCount': doc.data()['reviewCount'] + 1});
       } else {
         print("No such document!");
         await FirebaseFirestore.instance
@@ -99,6 +89,9 @@ class _HomeSectionState extends State<HomeSection> {
           'createAt': Timestamp.now()
         });
       }
+    });
+    setState(() {
+      isLoading = false;
     });
   }
 

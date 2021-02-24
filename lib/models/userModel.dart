@@ -1,20 +1,21 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:unizon_chat_app/classes/users.dart';
-import 'package:unizon_chat_app/common/constant/auth.dart';
 
 class UserModel extends ChangeNotifier {
   CustomerUser customerInfo;
   List<CustomerUser> customerUserList;
   bool isLoading = false;
+  final uid = FirebaseAuth.instance.currentUser.uid;
 
   Future<void> fetchCustomerInfo() async {
     this.isLoading = true;
-    var customerInfo;
+    CustomerUser customerInfo;
 
     customerInfo = await FirebaseFirestore.instance
         .collection('customerInfo')
-        .doc(authUserId)
+        .doc(uid)
         .get()
         .then((value) => CustomerUser(
             uid: value.data()['uid'],
@@ -37,7 +38,7 @@ class UserModel extends ChangeNotifier {
     //customerInfoからuser画像を取得
     final customerUserInfo = await FirebaseFirestore.instance
         .collection('customerInfo')
-        .doc(userUid)
+        .doc(uid)
         .get()
         .then((value) => value.data()['imagePath']);
     //仮にキーが存在していなかったらからで取得
@@ -58,7 +59,7 @@ class UserModel extends ChangeNotifier {
     } else {
       customerInfo = await FirebaseFirestore.instance
           .collection('customerInfo')
-          .doc(userUid)
+          .doc(uid)
           .get()
           .then((value) => CustomerUser(
               uid: value.data()['uid'],

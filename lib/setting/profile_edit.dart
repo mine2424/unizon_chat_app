@@ -43,7 +43,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
             Navigator.pop(context);
           },
         ),
-        title: const Text('HinataPicks'),
+        title: const Text('ユニゾンチャット'),
       ),
       body: Stack(
         alignment: Alignment.center,
